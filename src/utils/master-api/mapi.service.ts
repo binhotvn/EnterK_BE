@@ -2,22 +2,25 @@ import { BadRequestException, Injectable, Logger } from '@nestjs/common';
 import { HttpService } from '../http.service';
 import { AxiosRequestConfig } from 'axios';
 import { UtilsService } from '../utils.service';
+import {encode} from 'html-entities';
+
 @Injectable()
 export class MapiService {
   private readonly loggerService = new Logger('MAPI_SERVICE');
   private readonly httpService = new HttpService();
-  private readonly MAPI_HOST = process.env.MAPI_URL;
-  private readonly SISAPI_HOST = process.env.SISAPI_URL;
+  private readonly MAPI_HOST = process.env.GOOGLE_TRANSLATE_HOST;
+  private readonly API_KEY_GG = process.env.GOOGLE_TRANSLATE_KEY;
+
   private readonly utils = new UtilsService();
 
-  async getTranslated(content: string, into_lg_code: string): Promise<any> {
+  async getTranslated(content: string, into_lg_code: string): Promise<any> { 
     const data = JSON.stringify({
-      q: content,
+      q: encode(content, {mode: 'extensive'}),
       target: into_lg_code,
       format: 'html',
     });
-
-    return this.httpService.post(this.MAPI_HOST + '/login', data);
+    console.log('this.MAPI_HOST', this.MAPI_HOST + '?key='+ this.API_KEY_GG)
+    return this.httpService.post(this.MAPI_HOST + '?key='+ this.API_KEY_GG, data);
   }
   
 

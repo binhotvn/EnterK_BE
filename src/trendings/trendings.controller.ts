@@ -17,6 +17,12 @@ export class TrendingsController {
     return this.trendingsService.findAll();
   }
 
+  @Get('type/:type')
+  findType(@Param('type') type: string) { 
+
+    return this.trendingsService.findType(type);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.trendingsService.findOne(id);

@@ -47,12 +47,24 @@ export class HttpService {
   }
   async post(url: string, data?: any, config?: AxiosRequestConfig) {
     config = { headers: { 'Content-Type': 'application/json' } };
-    const response = await axios.post(url, data, config);
 
-    if (!ACCEPT_HTTP_CODE.includes(response.status)) {
-      this.loggerService.error('HTTP_SERVICE POST ERROR');
+
+    try {
+      const response = await axios.post(url, data, config);
+
+      if (!ACCEPT_HTTP_CODE.includes(response.status)) {
+        this.loggerService.error('HTTP_SERVICE POST ERROR');
+      } 
+      return response.data;
+
+    } catch(e){
+      this.loggerService.error('HTTP_SERVICE POST ERROR AT CATCH');
+      this.loggerService.error(e);
+      console.log('data', data)
     }
-    return response.data;
+    
+
+    
   }
 
   async put(url: string, data?: any, config?: AxiosRequestConfig) {

@@ -18,13 +18,14 @@ export class Trending {
     translated: MultiLanguageContent[];
 
     @Prop({required: true, default: () => new Date()})
-    time_created: Date;
+    createdAt: Date;
 
     @Prop({required: true, default: () => new Date()})
-    time_modified: Date;
+    modifiedAt: Date;
 
     @Prop({required: true, default: 0})
     score: Number;
-
     
+    @Prop({required: true})
+    type: string;
 }
