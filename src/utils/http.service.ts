@@ -54,13 +54,14 @@ export class HttpService {
 
       if (!ACCEPT_HTTP_CODE.includes(response.status)) {
         this.loggerService.error('HTTP_SERVICE POST ERROR');
+        this.loggerService.error(response.data);
       } 
       return response.data;
 
     } catch(e){
       this.loggerService.error('HTTP_SERVICE POST ERROR AT CATCH');
       this.loggerService.error(e);
-      console.log('data', data)
+      console.log('Error at ', data)
     }
     
 
