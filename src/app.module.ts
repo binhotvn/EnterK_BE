@@ -1,5 +1,5 @@
-import { CacheModule, Module } from '@nestjs/common';
-
+import {  Module } from '@nestjs/common';
+import { CacheModule } from '@nestjs/cache-manager'
 import * as path from 'path';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
@@ -18,15 +18,17 @@ import { TrendingsModule } from './trendings/trendings.module';
       isGlobal: true,
     }),
     MongooseModule.forRoot(process.env.MONGODB_URI),
+    EventsModule,
+
     CacheModule.register(),
     UsersModule,
     AuthModule,
     PostsModule,
-    EventsModule,
     PostsModule,
     TrendingsModule,
+    
   ],
-  controllers: [AppController],
+  // controllers: [AppController],
   providers: [
     AppService,
     UtilsService,

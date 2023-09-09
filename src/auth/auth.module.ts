@@ -1,4 +1,4 @@
-import { CacheModule, Module } from '@nestjs/common';
+import { CacheModule } from '@nestjs/cache-manager';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { AuthService } from './auth.service';
@@ -7,7 +7,7 @@ import { LocalStrategy } from './strategies/local.strategy';
 import { AuthController } from './auth.controller';
 import { PRIVATE_KEY, PUBLIC_KEY, UtilsService } from 'src/utils/utils.service';
 import { UsersModule } from 'src/users/users.module';
-import { APP_GUARD } from '@nestjs/core';
+import {Module} from '@nestjs/common';
 @Module({
   imports: [
     PassportModule,

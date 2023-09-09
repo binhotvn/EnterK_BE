@@ -19,7 +19,6 @@ export class MapiService {
       target: into_lg_code,
       format: 'html',
     });
-    console.log('this.MAPI_HOST', this.MAPI_HOST + '?key='+ this.API_KEY_GG)
     return this.httpService.post(this.MAPI_HOST + '?key='+ this.API_KEY_GG, data);
   }
   
