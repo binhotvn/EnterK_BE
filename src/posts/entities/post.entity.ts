@@ -52,4 +52,8 @@ export class Post {
   img: string;
   @Prop({ required: true, default: () => new Date() })
   modifiedAt: Date;
+
+  @Prop({required: true, default: []})
+  tag: string[]
 }
+
