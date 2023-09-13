@@ -15,6 +15,14 @@ export class MultiLanguageContent {
   source: string;
 }
 
+export class KeywordRecommend {
+  @Prop({required: true})
+  key: string;
+
+  @Prop({required: true, default: 0})
+  score: Number;
+}
+
 @Schema()
 export class Post {
   @Prop({ required: true, default: () => uuidv4() })
@@ -54,6 +62,11 @@ export class Post {
   modifiedAt: Date;
 
   @Prop({required: true, default: []})
-  tag: string[]
+  tag: string[];
+
+  @Prop({required: true, default: []})
+  @Type(() => KeywordRecommend)
+  @ValidateNested({each: true})
+  recommend: KeywordRecommend[];
 }
 
