@@ -19,7 +19,10 @@ export class PostsService {
         {language: 'KOREAN', content: (await this.mapi.getTranslated(createPostDto.description, 'ko')).data.translations[0].translatedText, lang_key: 'KO'},
         {language: 'VIETNAMESE', content: (await this.mapi.getTranslated(createPostDto.description, 'vi')).data.translations[0].translatedText, lang_key: 'VI'},
         {language: 'ENGLISH', content: (await this.mapi.getTranslated(createPostDto.description, 'en')).data.translations[0].translatedText, lang_key: 'EN'},
-      
+        {language: 'SPANISH', content: (await this.mapi.getTranslated(createPostDto.description, 'es')).data.translations[0].translatedText, lang_key: 'ES'},
+        {language: 'HINDI', content: (await this.mapi.getTranslated(createPostDto.description, 'hi')).data.translations[0].translatedText, lang_key: 'HI'},
+        {language: 'JAPANESE', content: (await this.mapi.getTranslated(createPostDto.description, 'ja')).data.translations[0].translatedText, lang_key: 'JA'},
+
       ],
       content_origin: createPostDto.content,
       title: createPostDto.title,
@@ -27,7 +30,10 @@ export class PostsService {
         {language: 'KOREAN', content: (await this.mapi.getTranslated(createPostDto.title, 'ko')).data.translations[0].translatedText, lang_key: 'KO'},
         {language: 'VIETNAMESE', content: (await this.mapi.getTranslated(createPostDto.title, 'vi')).data.translations[0].translatedText, lang_key: 'VI'},
         {language: 'ENGLISH', content: (await this.mapi.getTranslated(createPostDto.title, 'en')).data.translations[0].translatedText, lang_key: 'EN'},
-      
+        {language: 'SPANISH', content: (await this.mapi.getTranslated(createPostDto.title, 'es')).data.translations[0].translatedText, lang_key: 'ES'},
+        {language: 'HINDI', content: (await this.mapi.getTranslated(createPostDto.title, 'hi')).data.translations[0].translatedText, lang_key: 'HI'},
+        {language: 'JAPANESE', content: (await this.mapi.getTranslated(createPostDto.title, 'ja')).data.translations[0].translatedText, lang_key: 'JA'},
+
       ],
       img: createPostDto.img,
       owner: 'KA',
@@ -36,6 +42,10 @@ export class PostsService {
         {language: 'KOREAN', content: (await this.mapi.getTranslated(createPostDto.content, 'ko')).data.translations[0].translatedText, lang_key: 'KO'},
         {language: 'VIETNAMESE', content: (await this.mapi.getTranslated(createPostDto.content, 'vi')).data.translations[0].translatedText, lang_key: 'VI'},
         {language: 'ENGLISH', content: (await this.mapi.getTranslated(createPostDto.content, 'en')).data.translations[0].translatedText, lang_key: 'EN'},
+        {language: 'SPANISH', content: (await this.mapi.getTranslated(createPostDto.content, 'es')).data.translations[0].translatedText, lang_key: 'ES'},
+        {language: 'ENGLISH', content: (await this.mapi.getTranslated(createPostDto.content, 'hi')).data.translations[0].translatedText, lang_key: 'HI'},
+        {language: 'JAPANESE', content: (await this.mapi.getTranslated(createPostDto.content, 'ja')).data.translations[0].translatedText, lang_key: 'JA'},
+
       ]
     });
     return newPost.save();
