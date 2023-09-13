@@ -31,7 +31,6 @@ export class EventsGateway {
 
   @SubscribeMessage('chat_in')
   async identity(@MessageBody() data_raw: string): Promise<any>  {
-    console.log('incoming', data_raw)
     if (this.utils.isJsonString(data_raw)){
       const data = JSON.parse(data_raw);
       const newMessageInDb = new this.chatModel({
@@ -40,7 +39,10 @@ export class EventsGateway {
         chat_translated: [
           {lang_key: 'VI', language: "VIETNAMESE", content: (await this.mapi.getTranslated(data.message,'vi')).data.translations[0].translatedText},
           {lang_key: 'EN', language: "ENGLISH", content: (await this.mapi.getTranslated(data.message,'en')).data.translations[0].translatedText},
-          {lang_key: 'KO', language: "KOREAN", content: (await this.mapi.getTranslated(data.message,'ko')).data.translations[0].translatedText}
+          {lang_key: 'KO', language: "KOREAN", content: (await this.mapi.getTranslated(data.message,'ko')).data.translations[0].translatedText},
+          {lang_key: 'ES', language: "SPANISH", content: (await this.mapi.getTranslated(data.message,'es')).data.translations[0].translatedText},
+          {lang_key: 'HI', language: "HINDI", content: (await this.mapi.getTranslated(data.message,'hi')).data.translations[0].translatedText},
+
         ]
       })
       const result = await newMessageInDb.save()
