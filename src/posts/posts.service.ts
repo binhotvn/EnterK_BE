@@ -46,7 +46,8 @@ export class PostsService {
         {language: 'ENGLISH', content: (await this.mapi.getTranslated(createPostDto.content, 'hi')).data.translations[0].translatedText, lang_key: 'HI'},
         {language: 'JAPANESE', content: (await this.mapi.getTranslated(createPostDto.content, 'ja')).data.translations[0].translatedText, lang_key: 'JA'},
 
-      ]
+      ],
+      recommend: JSON.parse((await this.mapi.chatGPTContent(createPostDto.content)).choices[0].message.content),
     });
     return newPost.save();
 
