@@ -42,6 +42,7 @@ export class EventsGateway {
           {lang_key: 'KO', language: "KOREAN", content: (await this.mapi.getTranslated(data.message,'ko')).data.translations[0].translatedText},
           {lang_key: 'ES', language: "SPANISH", content: (await this.mapi.getTranslated(data.message,'es')).data.translations[0].translatedText},
           {lang_key: 'HI', language: "HINDI", content: (await this.mapi.getTranslated(data.message,'hi')).data.translations[0].translatedText},
+          {lang_key: 'JA', language: "JAPANESE", content: (await this.mapi.getTranslated(data.message,'ja')).data.translations[0].translatedText},
 
         ]
       })
