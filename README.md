@@ -1,9 +1,8 @@
 
 
-# Backend
+# Backend for EnterK (some-parts)
 
-
-Yêu cầu NodeJS > 16.0.0
+This projects only contains some parts of Back-end (Post at must-read) due to previous employees
 
 
 # Installation
